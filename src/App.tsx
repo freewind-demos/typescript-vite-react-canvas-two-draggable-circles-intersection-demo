@@ -162,12 +162,6 @@ export function App(): ReactElement {
     dragRef.current = null;
   };
 
-  const onPointerLeave = (e: React.PointerEvent<HTMLCanvasElement>): void => {
-    if (e.pointerType === 'mouse' && dragRef.current !== null) {
-      endDrag(e);
-    }
-  };
-
   return (
     <div className="page">
       <h1>Canvas 双圆拖拽与相交区域填色</h1>
@@ -181,7 +175,6 @@ export function App(): ReactElement {
           onPointerMove={onPointerMove}
           onPointerUp={endDrag}
           onPointerCancel={endDrag}
-          onPointerLeave={onPointerLeave}
         />
       </div>
     </div>
